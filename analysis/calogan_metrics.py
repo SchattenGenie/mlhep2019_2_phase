@@ -79,7 +79,7 @@ def get_shower_width(data, ps, points, orthog=False):
 
     sigma = np.sqrt(sum_2 - sum_1 * sum_1)
         
-    return sigma
+    return np.nan_to_num(sigma)
 
 
 def get_ms_ratio2(data, alpha=0.1):
