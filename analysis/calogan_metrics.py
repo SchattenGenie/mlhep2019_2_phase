@@ -74,8 +74,8 @@ def get_shower_width(data, ps, points, orthog=False):
     sum_1 = (ww * rescale[..., np.newaxis, np.newaxis] * xx).sum(axis=(1, 2))
     sum_2 = (ww * (rescale[..., np.newaxis, np.newaxis] * xx)**2).sum(axis=(1, 2))
     
-    sum_1 = sum_1 / sum_0
-    sum_2 = sum_2 / sum_0
+    sum_1 = sum_1 / (sum_0 + 1e-5)
+    sum_2 = sum_2 / (sum_0 + 1e-5)
 
     sigma = np.sqrt(sum_2 - sum_1 * sum_1)
         
@@ -88,7 +88,7 @@ def get_ms_ratio2(data, alpha=0.1):
     return num / 900.
 
 def get_sparsity_level(data):
-    alphas = np.logspace(-5, 0, 50)
+    alphas = np.logspace(-5, -1, 20)
     sparsity = []
     for alpha in alphas:
         sparsity.append(get_ms_ratio2(data, alpha))
