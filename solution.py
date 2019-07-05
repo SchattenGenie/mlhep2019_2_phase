@@ -11,10 +11,10 @@ def main():
     data_test = np.load(input_dir + '/data_test.npz', allow_pickle=True)
     N_test = len(data_test['ParticleMomentum'])
 
-    np.savez_compressed(output_dir + '/data_val_solution.npz', 
+    np.savez_compressed(output_dir + '/data_val_prediction.npz', 
                          EnergyDeposit=np.random.randn(N_val, 30, 30))
 
-    np.savez_compressed(output_dir + '/data_test_solution.npz',
+    np.savez_compressed(output_dir + '/data_test_prediction.npz',
                          EnergyDeposit=np.random.randn(N_test, 30, 30))
 
     return 0
