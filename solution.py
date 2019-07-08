@@ -8,6 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torch.utils.data as utils
+import os
 
 def main():
     input_dir, output_dir = sys.argv[1:]
